@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Google – Dark UI Clone</title>
+
+  <style>
+    /* ======================
+       Root & Design Tokens
+       ====================== */
+    :root {
+      --bg-main: #0f1115;
+      --bg-surface: #161a20;
+      --bg-input: #1e232b;
+
+      --text-primary: #e8eaed;
+      --text-secondary: #9aa0a6;
+
+      --accent: #8ab4f8;
+
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+
+      --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.35);
+      --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.45);
+
+      --transition-fast: 0.2s ease;
+    }
+
+    /* ======================
+       Reset & Base Styles
+       ====================== */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue",
+                   Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-primary);
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ======================
+       Header
+       ====================== */
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    header a:hover {
+      text-decoration: underline;
+    }
+
+    .profile {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8ab4f8, #c58af9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #0f1115;
+    }
+
+    /* ======================
+       Main Content
+       ====================== */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      gap: 2.5rem;
+    }
+
+    /* Logo */
+    .logo {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+    }
+
+    .logo span:nth-child(1) { color: #8ab4f8; }
+    .logo span:nth-child(2) { color: #ea4335; }
+    .logo span:nth-child(3) { color: #fbbc05; }
+    .logo span:nth-child(4) { color: #8ab4f8; }
+    .logo span:nth-child(5) { color: #34a853; }
+    .logo span:nth-child(6) { color: #ea4335; }
+
+    /* Search Box */
+    .search-container {
+      width: 100%;
+      max-width: 620px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background-color: var(--bg-input);
+      border-radius: var(--radius-lg);
+      padding: 0.75rem 1.25rem;
+      box-shadow: var(--shadow-soft);
+      transition: box-shadow var(--transition-fast);
+    }
+
+    .search-box:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .search-icon {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-right: 0.75rem;
+    }
+
+    .search-box input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--text-primary);
+      font-size: 1rem;
+    }
+
+    .search-box input::placeholder {
+      color: var(--text-secondary);
+    }
+
+    /* Buttons */
+    .actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      box-shadow: var(--shadow-soft);
+      transition: background-color var(--transition-fast),
+                  box-shadow var(--transition-fast);
+    }
+
+    .btn:hover {
+      background-color: #202632;
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* ======================
+       Footer
+       ====================== */
+    footer {
+      padding: 1rem 1.5rem;
+      background-color: var(--bg-surface);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ======================
+       Responsive Tweaks
+       ====================== */
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="#">Gmail</a>
+    <a href="#">Images</a>
+    <div class="profile">A</div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- Logo -->
+    <div class="logo" aria-label="Google Logo">
+      <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+    </div>
+
+    <!-- Search -->
+    <section class="search-container">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search Google or type a URL" />
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <section class="actions">
+      <a href="#" class="btn">Google Search</a>
+      <a href="#" class="btn">I'm Feeling Lucky</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      <a href="#">About</a> ·
+      <a href="#">Advertising</a> ·
+      <a href="#">Business</a>
+    </div>
+    <div>
+      <a href="#">Privacy</a> ·
+      <a href="#">Terms</a> ·
+      <a href="#">Settings</a>
+    </div>
+  </footer>
+
+</body>
+</html>
